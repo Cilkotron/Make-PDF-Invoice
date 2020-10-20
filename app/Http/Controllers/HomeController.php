@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $bills =  Bill::all();
         $bills->transform(function($bill, $key) {
-            $bill->invoice = unserialize($bill->invoice, $key);
+            $bill->invoice = unserialize($bill->invoice);
             return $bill;
         });
         $companies = Company::all();
