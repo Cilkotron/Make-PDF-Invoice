@@ -15,7 +15,9 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        if($owner = Settings::all()->first()) {
+
+        $owner = Settings::all()->first();
+        if($owner) {
             return view('settings.index', ['owner' => $owner]);
         } else {
             return view('settings.create');
