@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Bill;
-use App\Company; 
+use App\Company;
 use App\Contact;
 
 class HomeController extends Controller
@@ -27,12 +27,12 @@ class HomeController extends Controller
     {
         $bills =  Bill::all();
         $bills->transform(function($bill, $key) {
-            $bill->invoice = unserialize($bill->invoice);
+            $bill->invoice = unserialize($bill->invoice, $key);
             return $bill;
         });
         $companies = Company::all();
         return view('home', ['bills' => $bills])->with('companies', $companies );
 
     }
-    
+
 }

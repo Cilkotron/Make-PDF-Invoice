@@ -13,7 +13,6 @@
                 <div class="col-md-6">
                     <img class="img-thumbnail" src="{{ asset('img/logo2.png') }}" alt="Some Company Logo" style="height:200px; width: 400px; display: block; margin: 0 auto;" />
                 </div>
-                @dd($owner)
                <div class="col-md-6">
                     <h3>{{ $owner->company_name }}</h3>
                     <h5>{{ $owner->contact_person }}</h5>
