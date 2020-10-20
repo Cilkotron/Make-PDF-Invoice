@@ -1,0 +1,139 @@
+@page {
+    margin: 0px;
+}
+body {
+    margin: 0px;
+}
+* {
+    font-family: Verdana, Arial, sans-serif;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+table {
+    font-size: x-small;
+}
+tfoot tr td {
+    font-weight: bold;
+    font-size: x-small;
+}
+.invoice table {
+    margin: 15px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+.invoice h3 {
+    margin-left: 15px;
+}
+.information {
+    background-color: white!important;
+    color: #1167b1!important;
+}
+.information .logo {
+    margin: 5px;
+}
+.information table {
+    padding: 10px;
+}
+/*
+Generic Styling, for Desktops/Laptops
+*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  /* Zebra striping
+  tr:nth-of-type(odd) {
+    background: #c2dddd;
+  }
+   */
+  th {
+    background: #c2dddd;
+    color: #495057;
+    font-weight: normal;
+  }
+  td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+
+
+  @media
+    only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	 thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr { border: 1px solid #ccc; }
+
+	td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+
+	td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+	/*
+	Label the data
+    */
+
+	td.one:nth-of-type(1):before { content: "Company/Client"; }
+	td.two:nth-of-type(2):before { content: "Address"; }
+	td.three:nth-of-type(3):before { content: "PostCode"; }
+	td.four:nth-of-type(4):before { content: "City"; }
+	td.five:nth-of-type(5):before { content: "Country"; }
+	td.six:nth-of-type(6):before { content: "Email"; }
+	td.seven:nth-of-type(7):before { content: "Phone"; }
+	td.eight:nth-of-type(1):before { content: "Invoice Number"; }
+	td.nine:nth-of-type(2):before { content: "Invoice Date"; }
+    td.ten:nth-of-type(3):before { content: "Currency"; }
+    td.eleven:nth-of-type(1):before { content: "Service"; }
+    td.twelve:nth-of-type(2):before { content: "Description"; }
+    td.sixteen:nth-of-type(3):before { content: "Unit Price"; }
+	td.thirteen:nth-of-type(4):before { content: "Qty"; }
+    td.fourteen:nth-of-type(5):before { content: "Total Price"; }
+    td.fifteen:nth-of-type(1):before { content: "Note"; }
+    td.something:nth-of-type(1):before { content: "Total Amount"; }
+}
+
+.something {
+    text-align: right;
+    font-weight: bold;
+}
+
+
+#index-row {
+    background: #c2dddd;
+    color: #495057;
+    margin: 2px;
+}
+
+.font-weight-bold {
+    color: #495057!important;
+}
