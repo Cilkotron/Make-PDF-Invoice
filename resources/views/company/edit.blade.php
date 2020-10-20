@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Konstruktiv Design | Company')
+@section('title','Some Company Ltd. | Company')
 
 
 @push('css')
@@ -81,7 +81,7 @@
                       </div>
                       <div class="row my-3">
                           <div class="col-md-4">
-                              <label class="bmd-label-floating float-right font-weight-bold">PIB</label>
+                              <label class="bmd-label-floating float-right font-weight-bold">VAT Id</label>
                           </div>
                           <div class="col-md-6">
                               <input type="number" class="form-control" name="pib" value="{{ $company->pib }}">
@@ -89,7 +89,7 @@
                       </div>
                       <div class="row my-3">
                           <div class="col-md-4">
-                              <label class="bmd-label-floating float-right font-weight-bold">Matični broj</label>
+                              <label class="bmd-label-floating float-right font-weight-bold">Company Id</label>
                           </div>
                           <div class="col-md-6">
                               <input type="number" class="form-control" name="maticni" value="{{ $company->maticni }}">

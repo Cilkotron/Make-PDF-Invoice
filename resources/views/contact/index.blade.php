@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Konstruktiv Design | Contact')
+@section('title','Some Company Ltd. | Contact')
 
 @push('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">

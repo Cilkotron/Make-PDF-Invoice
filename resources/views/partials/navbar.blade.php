@@ -23,10 +23,11 @@
                     @endif
                 @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('settings.index') }}" title="Owner Company Settings">Settings</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('service.index') }}">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('company.index') }}">Clients</a></li>
                     <li style="padding-top: 8px;">
-                        <a href="{{ route('service.invoice') }}">Invoice
+                        <a href="{{ route('service.invoice') }}" title="Create New Invoice">Invoice
                             <span class="badge badge-pill badge-primary">{{ Session::has('invoice') ? Session::get('invoice')->totalQty : '' }}</span>
                         </a>
                     </li>

@@ -31,7 +31,8 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('service', 'ServiceController');
     Route::resource('company', 'CompanyController');
-    
+    Route::resource('settings', 'SettingsController');
+
     Route::get('/contact', 'ContactController@index')->name('message.index');
     Route::get('/contact/{id}/edit', 'ContactController@edit')->name('message.edit');
     Route::post('/contact/{id}','ContactController@status')->name('message.status');

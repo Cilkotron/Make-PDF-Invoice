@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Konstruktiv Design | Contact')
+@section('title','Some Company Ltd. | Contact')
 
 
 @push('css')
@@ -52,8 +52,8 @@
                                  <textarea class="form-control" name="message" rows="3">{{ $message->message }}</textarea>
                           </div>
                       </div>
-  
-                
+
+
                         <div class="row">
                             <div class="col-md-12">
                                  @if($message->status == false)

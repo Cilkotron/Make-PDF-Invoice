@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Faktura</title>
+    <title>Invoice</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 </head>
     <style type="text/css">
@@ -100,23 +100,23 @@
                 <img src="../public/img/logo2.jpg" alt="Some Company Logo" style="height:200px; width: 400px; padding: 20 0 0 20;" />
             </td>
             <td align="right" style="width: 60%; padding: 20 60 0 0;">
-                <span class="invoice_from"><b>Some Company Ltd.</b></span> | <span>Lorem ipsum</span>
+                <span class="invoice_from"><b>{{ $owner->company_name }}</b></span> | <span>{{ $owner->contact_person }}</span>
                 <br>
-                <span> Some Street 18/2</span>
+                <span> {{ $owner->address }}</span>
                 <br>
-                <span>18000, Nis, Serbia</span>
+                <span>{{ $owner->postcode}}, {{ $owner->city }}, {{ $owner->country }}</span>
                 <br>
-                <span>+381 60 123456789</span>
+                <span>{{ $owner->phone }}</span>
                 <br>
-                <span> office@somecompany.com</span>
+                <span>{{ $owner->email }}</span>
                 <br>
                 <span><a href="#">www.somecompany.com</a></span>
                 <br>
-                <span>VAT: 123456789</span>
+                <span>VAT: {{ $owner->pib }}</span>
                 <br>
-                <span>Company ID: 98765432</span>
+                <span>Company ID: {{ $owner->maticni }}</span>
                 <br>
-                <span>Bank Account: 124-0000456789-91 </span>
+                <span>Bank Account: {{ $owner->bank_account }} </span>
             </td>
         </tr>
 
@@ -134,11 +134,11 @@
             <td align="left" id="invoice_details">
                 <span>Invoice date: &nbsp; &nbsp; &nbsp; {{ $bill->invoice_date }}</span>
                 <br>
-                <span>Invoice place: &nbsp; &nbsp; Nis-Mediana</span>
+                <span>Invoice place: &nbsp; &nbsp; {{ $owner->city }}</span>
                 <br>
                 <span>Supplay date: &nbsp; &nbsp; {{ $bill->invoice_date }}</span>
                 <br>
-                <span>Supplay place:&nbsp; &nbsp; Nis-Mediana</span>
+                <span>Supplay place:&nbsp; &nbsp;  {{ $owner->city }} </span>
                 <br>
             </td>
             <td>
@@ -146,17 +146,17 @@
                 <br>
             </td>
             <td align="right" class="invoice_to">
-                <span class="invoice_from">{{ $company[0]['company_name'] }}</span>
+                <span class="invoice_from">{{ $company->company_name }}</span>
                 <br>
-                <span>{{ $company[0]['address'] }}</span>, <span>{{ $company[0]['city']}}, {{ $company[0]['postcode'] }}, {{ $company[0]['country'] }}</span>
+                <span>{{ $company->address }}</span>, <span>{{ $company->city}}, {{ $company->postcode}}, {{ $company->country }}</span>
                 <br>
-                <span>{{ $company[0]['email'] }}</span>, <span>{{ $company[0]['phone'] }}</span>
+                <span>{{ $company->email }}</span>, <span>{{ $company->phone }}</span>
                 <br>
-                @if($company[0]['pib'])
-                <span>Vat: {{ $company[0]['pib'] }}</span>,
+                @if($company->pib)
+                <span>Vat: {{ $company->pib }}</span>,
                 @endif
-                @if($company[0]['maticni'])
-                <span>Company ID: {{ $company[0]['maticni'] }}</span>
+                @if($company->maticni)
+                <span>Company ID: {{ $company->maticni }}</span>
                 @endif
 
         </td>
@@ -243,12 +243,12 @@
     <table width="90%" align="center">
         <tr>
             <td>
-            <span>VAT: 123456789</span>&nbsp;|&nbsp;<span>Company ID: 98765432</span>
+            <span>VAT: {{ $owner->pib }}</span>&nbsp;|&nbsp;<span>Company ID: {{ $owner->maticni }}</span>
             <br>
-            <span>Bank Account: 124-0000456789-91</span>
+            <span>Bank Account: {{ $owner->bank_account }}</span>
         </td>
             <td align="right">
-                &copy; {{ date('Y') }} Lorem Ipsum Some Company Ltd.
+                &copy; {{ date('Y') }} {{ $owner->contact_person }} {{ $owner->company_name }}.
             </td>
         </tr>
     </table>

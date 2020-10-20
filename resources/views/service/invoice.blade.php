@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Konstruktiv Design | Invoice')
+@section('title','Some Company Ltd. | Invoice')
 
 
 
@@ -14,17 +14,17 @@
                     <img class="img-thumbnail" src="{{ asset('img/logo2.png') }}" alt="Some Company Logo" style="height:200px; width: 400px; display: block; margin: 0 auto;" />
                 </div>
                <div class="col-md-6">
-                    <h3>Some Company Ltd.</h3>
-                    <h5>Lorem Ipsum</h5>
-                    <span> office@somecompany.com| <a href="#" style="color: blue; ">www.somecompany.com</a></span>
+                    <h3>{{ $owner->company_name }}</h3>
+                    <h5>{{ $owner->contact_person }}</h5>
+                    <span> {{ $owner->email }} | <a href="#" style="color: blue; ">www.somecompany.com</a></span>
                     <br>
-                    <span>381 60 123456789 </span>
+                    <span>{{ $owner->phone }} </span>
                     <br>
-                    <span>Some street 18/2, 18000 Nis, Serbia</span>
+                    <span>{{ $owner->address }}, {{ $owner->postcode }} {{ $owner->city }}, {{ $owner->country }}</span>
                     <br>
-                    <span>VAT: 123456789 | Company ID: 98765432</span>
+                    <span>VAT: {{ $owner->pib }} | Company ID: {{ $owner->maticni }}</span>
                     <br>
-                    <span>Bank account: 124-0000456789-91</span>
+                    <span>Bank account: {{ $owner->bank_account }}</span>
                </div>
 
             </div>

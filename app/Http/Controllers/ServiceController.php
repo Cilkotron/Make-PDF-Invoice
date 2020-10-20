@@ -8,6 +8,7 @@ use App\Service;
 use App\Invoice;
 use App\Company;
 use App\Bill;
+use App\Settings;
 use Illuminate\Support\Facades\Session;
 use PDF;
 
@@ -137,7 +138,8 @@ class ServiceController extends Controller
         $oldInvoice = session()->get('invoice');
         $invoice = new Invoice($oldInvoice);
         $companies = Company::all();
-        return view('service.invoice', ['services' => $invoice->items, 'totalPrice' => $invoice->totalPrice, 'companies' => $companies]);
+        $owner = Settings::all()->first();
+        return view('service.invoice', ['services' => $invoice->items, 'totalPrice' => $invoice->totalPrice, 'companies' => $companies, 'owner' =>$owner]);
     }
 
     public function getReduceByOne($id) {
@@ -196,14 +198,16 @@ class ServiceController extends Controller
      public function pdfBill($id) {
         $bill = Bill::find($id);
         $bill->invoice = unserialize($bill->invoice);
-        $company = Company::where('id', $bill->company_id)->get()->toArray();
+        $company = Company::where('id', $bill->company_id)->get()->first();
+        $owner = Settings::all()->first();
          // view()->share('bill', $bill);
          $pdf = PDF::loadView('service.bill', [
              'bill' => $bill,
              'company' => $company,
-             'items' => $bill->invoice
+             'items' => $bill->invoice,
+             'owner' => $owner
          ]);
-         return $pdf->stream('Račun/'. $bill->invoice_number .'.pdf');
+         return $pdf->stream('Invoice/'. $bill->invoice_number .'.pdf');
      }
 
     public function deleteBill($id)
