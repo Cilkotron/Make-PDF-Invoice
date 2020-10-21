@@ -26,10 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $bills =  Bill::all();
-        $bills->transform(function($bill, $key) {
-            $bill->invoice = unserialize($bill->invoice);
-            return $bill;
-        });
+        $bills->invoice = unserialize($bills->invoice);
         $companies = Company::all();
         return view('home', ['bills' => $bills])->with('companies', $companies );
 
