@@ -139,7 +139,7 @@ class ServiceController extends Controller
         $invoice = new Invoice($oldInvoice);
         $companies = Company::all();
         $owner = Settings::all()->first();
-        return view('service.invoice', ['services' => $invoice->items, 'totalPrice' => $invoice->totalPrice, 'companies' => $companies, 'owner' => $owner]);
+        return view('service.invoice', ['services' => $invoice->items, 'totalPrice' => $invoice->totalPrice, 'companies' => $companies])->with('owner', $owner);
     }
 
     public function getReduceByOne($id) {
