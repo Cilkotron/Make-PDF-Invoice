@@ -26,12 +26,12 @@ class HomeController extends Controller
     public function index()
     {
         $bills =  Bill::all();
-        if($bills != []) {
-            $bills->transform(function($bill, $key) {
-                $bill->invoice = unserialize($bill->invoice);
-                return $bill;
-            });
-        }
+        $bills->transform(function($bill, $key) {
+            $bill = preg_replace('!s:(\d+):"(.*?)";!e', "'s:'.strlen('$2').':\"$2\";'", $bill);
+            $bill->invoice = unserialize($bill->invoice);
+            return $bill;
+        });
+
         $companies = Company::all();
         return view('home', ['bills' => $bills])->with('companies', $companies );
 
