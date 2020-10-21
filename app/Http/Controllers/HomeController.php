@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $bills =  Bill::all();
-        if($bills) {
+        if(isset($bills)) {
             $bills->transform(function($bill, $key) {
                 $bill->invoice = unserialize($bill->invoice);
                 return $bill;
