@@ -26,13 +26,13 @@ class HomeController extends Controller
     public function index()
     {
         $bills =  Bill::all();
-        if(isset($bills)) {
+        if($bills) {
             $bills->transform(function($bill, $key) {
                 $bill->invoice = unserialize($bill->invoice);
                 return $bill;
             });
             $companies = Company::all();
-            return view('home', ['bills' => $bills, 'companies' => $companies]);
+            return view('home', ['bills' => $bills], compact('companies', $companies));
         } else {
             return view('home'); 
         }
