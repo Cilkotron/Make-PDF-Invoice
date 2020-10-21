@@ -32,7 +32,7 @@ class HomeController extends Controller
         });
         $companies = Company::all();
 
-        return view('home', ['bills' => $bills, 'companies => $companies']);
+        return view('home', ['bills' => $bills, 'companies' => $companies]);
        
 
     }
