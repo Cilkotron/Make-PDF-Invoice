@@ -133,7 +133,8 @@ class ServiceController extends Controller
 
     public function getInvoice() {
         if(!session()->has('invoice')) {
-           return view('service.invoice');
+            $owner = Settings::all()->first();
+           return view('service.invoice', ['owner' => $owner]);
         }
         $oldInvoice = session()->get('invoice');
         $invoice = new Invoice($oldInvoice);
