@@ -27,14 +27,14 @@ class HomeController extends Controller
     {
         $bills =  Bill::all();
         $bills->transform(function($bill, $key) {
-            $bill->invoice = unserialize($bill->invoice);
+            $bill->invoice = json_decode($bill->invoice, true);
             return $bill;
         });
         $companies = Company::all();
+        return view('home', ['bills' => $bills, 'companies'  => $companies]);
 
-        return view('home', ['bills' => $bills, 'companies' => $companies]);
-       
 
     }
 
 }
+

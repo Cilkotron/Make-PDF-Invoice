@@ -184,7 +184,7 @@ class ServiceController extends Controller
         $invoice = new Invoice($oldInvoice);
 
          $bill = new Bill();
-         $bill->invoice = serialize($invoice);
+         $bill->invoice = json_encode($invoice);
          $bill->invoice_number = $request->input('invoice_number');
          $bill->invoice_date = $request->input('invoice_date');
          $bill->currency = $request->input('currency');
@@ -198,7 +198,7 @@ class ServiceController extends Controller
 
      public function pdfBill($id) {
         $bill = Bill::find($id);
-        $bill->invoice = unserialize($bill->invoice);
+        $bill->invoice = json_decode($bill->invoice);
         $company = Company::where('id', $bill->company_id)->get()->first();
         $owner = Settings::all()->first();
          // view()->share('bill', $bill);
@@ -209,6 +209,8 @@ class ServiceController extends Controller
              'owner' => $owner
          ]);
          return $pdf->stream('Invoice/'. $bill->invoice_number .'.pdf');
+
+
      }
 
     public function deleteBill($id)

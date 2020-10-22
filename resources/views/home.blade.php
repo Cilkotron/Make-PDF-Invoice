@@ -33,36 +33,34 @@
 
                 @foreach($bills as $key => $bill)
                     <tr>
-                  
-
                         <td>{{ $key + 1 }}</td>
                         <td>
                             @foreach($companies as $company)
-                                @if($company->id == $bill->company_id)
-                                {{ $company->company_name }}
+                                @if($company->id == $bill['company_id'])
+                                {{ $company['company_name'] }}
                                 @endif
                             @endforeach
                        </td>
 
-                        <td>{{ $bill->invoice_number }}</td>
-                        <td>{{ $bill->invoice_date}}</td>
+                        <td>{{ $bill['invoice_number'] }}</td>
+                        <td>{{ $bill['invoice_date']}}</td>
                         <td>
-                            @foreach(unserialize($bill->invoice)->items as $item )
+                            @foreach($bill->invoice['items'] as $item )
                                 {{$item['item']['title']}}, qty: {{ $item['qty'] }}, total: {{ number_format($item['price'], 2) }} <span><b>&#8658;</b></span>
                             @endforeach
                         </td>
-                        <td>{{ number_format($bill->invoice->totalPrice, 2) }}</td>
+                        <td>{{ number_format($bill->invoice['totalPrice'], 2) }}</td>
                         <td>
 
-                            <a href="{{ route('service.pdfBill', $bill->id) }}" class="btn btn-info btn-sm" title="pdf"><i class="fas fa-file-pdf"></i></a>
+                            <a href="{{ route('service.pdfBill', $bill['id'] ) }}" class="btn btn-info btn-sm" title="pdf"><i class="fas fa-file-pdf"></i></a>
 
-                            <form id="delete-form-{{ $bill->id }}" action="{{route('service.delete', $bill->id)   }}" style="display: none;" method="POST">
+                            <form id="delete-form-{{ $bill['id'] }}" action="{{route('service.delete',  $bill['id'] )   }}" style="display: none;" method="POST">
                                 @csrf
                                 @method('DELETE')
                             </form>
                             <button type="button" class="btn btn-danger btn-sm" title="delete" onclick="if(confirm('Are you sure? You want to delete this?')){
                                 event.preventDefault();
-                                document.getElementById('delete-form-{{ $bill->id }}').submit();
+                                document.getElementById('delete-form-{{ $bill['id'] }}').submit();
                             }else {
                                 event.preventDefault();
                                     }"><i class="fas fa-trash"></i></button>

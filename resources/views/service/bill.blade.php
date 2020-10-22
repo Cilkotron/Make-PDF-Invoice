@@ -179,10 +179,10 @@
         </tr>
         @foreach($items->items as $item)
         <tr class="my-5">
-            <td align="left">{{$item['item']['title'] }}</td>
-            <td align="left" id="description">{{$item['item']['description']}}</td>
-            <td align="right">{{ number_format($item['qty'], 2) }}</td>
-            <td align="right">{{ number_format($item['item']['price'], 2)}}</td>
+            <td align="left">{{ $item->item->title }}</td>
+            <td align="left" id="description">{{$item->item->description}}</td>
+            <td align="right">{{ number_format($item->qty, 2) }}</td>
+            <td align="right">{{ number_format($item->item->price, 2)}}</td>
             <td align="right">{{ number_format($items->totalPrice, 2)}}</td>
         </tr>
         @endforeach
