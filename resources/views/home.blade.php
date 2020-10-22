@@ -45,7 +45,7 @@
                         <td>{{ $bill['invoice_number'] }}</td>
                         <td>{{ $bill['invoice_date']}}</td>
                         <td>
-                            @dd($bill)
+                            @dd($bill->invoice)
                             @foreach($bill->invoice['items'] as $item )
                                 {{$item['item']['title']}}, qty: {{ $item['qty'] }}, total: {{ number_format($item['price'], 2) }} <span><b>&#8658;</b></span>
                             @endforeach
