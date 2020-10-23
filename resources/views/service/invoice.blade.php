@@ -14,6 +14,7 @@
                     <img class="img-thumbnail" src="{{ asset('img/logo2.png') }}" alt="Some Company Logo" style="height:200px; width: 400px; display: block; margin: 0 auto;" />
                 </div>
                <div class="col-md-6">
+                   @if($owner)
                     <h3>{{ $owner->company_name }}</h3>
                     <h5>{{ $owner->contact_person }}</h5>
                     <span> {{ $owner->email }} | <a href="#" style="color: blue; ">www.somecompany.com</a></span>
@@ -25,6 +26,7 @@
                     <span>VAT: {{ $owner->pib }} | Company ID: {{ $owner->maticni }}</span>
                     <br>
                     <span>Bank account: {{ $owner->bank_account }}</span>
+                    @endif
                </div>
 
             </div>

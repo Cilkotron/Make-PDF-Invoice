@@ -31,7 +31,7 @@
                             <span class="badge badge-pill badge-primary">{{ Session::has('invoice') ? Session::get('invoice')->totalQty : '' }}</span>
                         </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('message.index')}}">Messages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('message.index')}}">Messages {{ $countMessages ?? '' }}</a></li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}

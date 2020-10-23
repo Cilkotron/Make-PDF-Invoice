@@ -183,7 +183,7 @@
             <td align="left" id="description">{{$item->item->description}}</td>
             <td align="right">{{ number_format($item->qty, 2) }}</td>
             <td align="right">{{ number_format($item->item->price, 2)}}</td>
-            <td align="right">{{ number_format($items->totalPrice, 2)}}</td>
+            <td align="right">{{ number_format($item->item->price*$item->qty, 2)}}</td>
         </tr>
         @endforeach
 
