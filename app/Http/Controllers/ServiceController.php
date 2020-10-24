@@ -178,11 +178,19 @@ class ServiceController extends Controller
 
      public function postBill(Request $request) {
         if(!session()->has('invoice')) {
-           return view('service.invoice');
-        }
-        $oldInvoice = session()->get('invoice');
-        $invoice = new Invoice($oldInvoice);
+            return view('service.invoice');
+         }
+         $oldInvoice = session()->get('invoice');
+         $invoice = new Invoice($oldInvoice);
 
+        $this->validate($request, [
+            'invoice_number' => 'required',
+            'invoice_date' => 'required',
+            'currency' => 'required',
+            'note' => 'required',
+            'company_id' => 'required',
+
+        ]);
          $bill = new Bill();
          $bill->invoice = json_encode($invoice);
          $bill->invoice_number = $request->input('invoice_number');
