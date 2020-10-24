@@ -119,7 +119,7 @@
                             <th>Note</th>
                         </thead>
                         <tr>
-                            <td class="fifteen"><textarea class="form-control" name="note" cols="30" rows="3" placeholder="Add Some Note..." required validate></textarea>
+                            <td class="fifteen"><textarea class="form-control" name="note" cols="30" rows="3" placeholder="Add Some Note..."></textarea>
 
                         </tr>
                     </table>
