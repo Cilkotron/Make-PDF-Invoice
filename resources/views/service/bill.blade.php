@@ -158,7 +158,6 @@
                 @if($company->maticni)
                 <span>Company ID: {{ $company->maticni }}</span>
                 @endif
-
         </td>
         </tr>
     </table>

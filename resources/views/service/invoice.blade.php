@@ -61,7 +61,7 @@
                             <th>Invoice Currency</th>
                         </thead>
                         <tr>
-                            <td class="eight"><input class="form-control" type="text" name="invoice_number" placeholder="Invoice Number" validate></td>
+                            <td class="eight"><input class="form-control" type="text" name="invoice_number" placeholder="Invoice Number"></td>
                             <td class="nine"><input class="form-control" type="date" name="invoice_date" placeholder="Invoice Date"></td>
                             <td class="ten" align="left">
                                 <select class="form-control" name="currency">
@@ -119,7 +119,7 @@
                             <th>Note</th>
                         </thead>
                         <tr>
-                            <td class="fifteen"><textarea class="form-control" name="note" cols="30" rows="3" placeholder="Add Some Note..." validate></textarea>
+                            <td class="fifteen"><textarea class="form-control" name="note" cols="30" rows="3" placeholder="Add Some Note..." required validate></textarea>
 
                         </tr>
                     </table>
