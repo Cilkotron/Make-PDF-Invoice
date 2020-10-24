@@ -187,7 +187,6 @@ class ServiceController extends Controller
             'invoice_number' => 'required',
             'invoice_date' => 'required',
             'currency' => 'required',
-            'note' => 'required',
             'company_id' => 'required',
 
         ]);
