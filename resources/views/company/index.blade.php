@@ -29,7 +29,7 @@
                     <th>Actions</th>
                   </thead>
                   <tbody>
-
+                @if($companies)
                 @foreach($companies as $key => $company)
                     <tr>
                         <td>{{ $company->company_name}}</td>
@@ -54,6 +54,7 @@
                         </td>
                     </tr>
                 @endforeach
+                @endif
 
                   </tbody>
                 </table>

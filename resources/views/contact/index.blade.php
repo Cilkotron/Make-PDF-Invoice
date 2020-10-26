@@ -30,7 +30,7 @@
                     <th>Actions</th>
                   </thead>
                   <tbody>
-
+                @if($messages)
                 @foreach($messages as $key => $message)
                     <tr>
                         <td>{{ $key + 1 }}</td>
@@ -73,6 +73,7 @@
                         </td>
                     </tr>
                 @endforeach
+                @endif
 
                   </tbody>
                 </table>

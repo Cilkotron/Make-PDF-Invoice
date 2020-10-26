@@ -29,7 +29,7 @@
                     <th>Actions</th>
                   </thead>
                   <tbody>
-
+                @if($services)
                 @foreach($services as $key => $service)
                     <tr>
                         <td>{{ $key + 1 }}</td>
@@ -54,6 +54,7 @@
                         </td>
                     </tr>
                 @endforeach
+                @endif
 
                   </tbody>
                 </table>

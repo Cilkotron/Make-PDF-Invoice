@@ -26,6 +26,10 @@
                     <span>VAT: {{ $owner->pib }} | Company ID: {{ $owner->maticni }}</span>
                     <br>
                     <span>Bank account: {{ $owner->bank_account }}</span>
+                    @else
+                    <span>Owner company settings nod defined!</span>
+                    <h4 class="mb-3">Please Add Service Company Settings</h4>
+                    <a href="{{ route('settings.index') }}"><button class="btn btn-info">Go to Settings</button></a>
                     @endif
                </div>
 
