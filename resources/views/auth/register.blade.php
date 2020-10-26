@@ -1,11 +1,26 @@
+
 @extends('layouts.app')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row justify-content-center my-5">
+        <div class="col-md-8 my-5">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="floar-right">
+                    <a href="{{ route('home') }}">
+                        <button type="button" aria-hidden="true" class="close" onclick="this.parentElement.style.display='none';" style="font-size: 3rem; color: #1abc9c; padding: 5px;">
+                            <span><i class="fas fa-times"></i></span>
+                        </button>
+
+                    </a>
+                </div>
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal5Label" align="center">Register</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-square"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

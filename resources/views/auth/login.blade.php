@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="floar-right">
                     <a href="{{ route('home') }}">
-                        <button class="close" type="button" style="font-size: 3rem; color: #1abc9c; padding: 5px;">
+                        <button type="button" aria-hidden="true" class="close" onclick="this.parentElement.style.display='none';" style="font-size: 3rem; color: #1abc9c; padding: 5px;">
                             <span><i class="fas fa-times"></i></span>
                         </button>
                     </a>
